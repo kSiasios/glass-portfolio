@@ -1,17 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
-:root {}
+@layer base {
+  :root {
+    --text-color: 0 0 0;
+    --bg-color: 255 255 255;
+    --border-color: 0 0 0;
+    --light-accent: 255 255 255;
+    --dark-accent: 222 222 222;
+  }
 
-@media (prefers-color-scheme: dark) {}
+  body[data-prefered-theme="light"] {
+    --text-color: 0 0 0;
+    --bg-color: 255 255 255;
+    --border-color: 0 0 0;
+    --light-accent: 255 255 255;
+    --dark-accent: 222 222 222;
+  }
+
+  body[data-prefered-theme="dark"] {
+    --text-color: 255 255 255;
+    --bg-color: 0 0 0;
+    --border-color: 255 255 255;
+    --light-accent: 45 45 45;
+    --dark-accent: 0 0 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: 255 255 255;
+      --bg-color: 0 0 0;
+      --border-color: 255 255 255;
+      --light-accent: 45 45 45;
+      --dark-accent: 0 0 0;
+    }
+  }
+}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  color: rgb(var(--text-color));
+  background: rgb(var(--bg-color));
   font-family: Inter, Helvetica, sans-serif;
 }
 
@@ -25,7 +55,7 @@ body {
   .glass-component {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 2rem;
-    border: 2px solid rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(200px);
     color: white;
     box-shadow: 0 -1.5rem 1.5rem rgba(0, 0, 0, 0.05);
@@ -36,18 +66,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    /* border: 2px solid rgba(255, 255, 255, 0.1); */
     box-sizing: border-box;
-    background: radial-gradient(100% 100% at 0% 0%,
-        #2d2d2d 15%,
-        #000000 85%)
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-      ,
+    background: radial-gradient(
+          100% 100% at 0% 0%,
+          rgb(var(--light-accent)) 15%,
+          rgb(var(--dark-accent)) 85%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
       #ffffff;
     box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
-      inset -4px -4px 10px 5px rgba(0, 0, 0, 0.25);
-    /* transition: background 1s ease-in-out; */
-    color: rgba(255, 255, 255, 0.7);
+      inset -4px -4px 10px 5px rgba(0, 0, 0, 0.25),
+      inset 0 0 0 2px rgba(var(--border-color) / 0.1);
+    color: rgba(var(--text-color) / 0.7);
   }
 
   .round-button:hover,
@@ -55,10 +86,16 @@ body {
   .round-button:focus-visible {
     box-sizing: border-box;
 
-    background: radial-gradient(100% 100% at 100% 100%, #2D2D2D 15%, #000000 85%)
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-      , #FFFFFF;
-    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25), inset 4px 4px 10px 5px rgba(0, 0, 0, 0.35);
-    color: rgba(255, 255, 255, .9);
+    background: radial-gradient(
+          100% 100% at 100% 100%,
+          rgb(var(--light-accent)) 15%,
+          rgb(var(--dark-accent)) 85%
+        )
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+      #ffffff;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
+      inset 4px 4px 10px 5px rgba(0, 0, 0, 0.35),
+      inset 0 0 0 2px rgba(var(--border-color) / 0.1);
+    color: rgba(var(--text-color) / 0.9);
   }
 }
