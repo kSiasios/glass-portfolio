@@ -1,7 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // images: {
+  //   domains: ["www.ujacka.gr", "brunisapartments.com", "alexaphotos.com"],
+  // },
   images: {
-    domains: ["www.ujacka.gr", "brunisapartments.com", "alexaphotos.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.ujacka.gr",
+      },
+      {
+        protocol: "https",
+        hostname: "**.brunisapartments.com",
+      },
+      {
+        hostname: "https",
+        hostname: "**.alexaphotos.com",
+      },
+    ],
   },
 };
 

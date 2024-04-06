@@ -13,11 +13,7 @@ import projects from "./utils/project_data";
 export default function Home() {
   const projectsArray = Object.values(projects);
   const [projectIndex, setProjectIndex] = useState(0);
-  const [theme, setTheme] = useState(
-    localStorage.getItem("prefered-theme")
-      ? localStorage.getItem("prefered-theme")
-      : "dark"
-  );
+  const [theme, setTheme] = useState("");
 
   useEffect(() => {
     if (!localStorage.getItem("prefered-theme")) {
@@ -34,7 +30,7 @@ export default function Home() {
       }
     }
 
-    console.log(theme);
+    // console.log(theme);
   });
 
   function swipeHandler(event: any, index: any) {
@@ -66,7 +62,7 @@ export default function Home() {
   return (
     <main
       data-prefered-theme={theme}
-      className="mx-auto max-w-[1440px] p-6 bg-bg-clr w-full h-fit grid grid-cols-12 grid-rows-12 gap-6"
+      className="mx-auto max-w-[1440px] p-6 bg-bg-clr w-full h-fit grid grid-cols-12 gap-6"
     >
       <section
         className="z-50 flex flex-col gap-9 text-2xl col-span-5 mt-[72px] p-14 pt-24 relative glass-component"
@@ -146,7 +142,7 @@ export default function Home() {
                 }}
                 className="transition-translate duration-300 linear inline-flex justify-between items-start gap-6 min-w-full"
               >
-                <figure className="flex-1 bg-black rounded-3xl border-2 border-white/10 h-full w-full">
+                <figure className="overflow-hidden flex-1 bg-black rounded-3xl border-2 border-white/10 h-full w-full">
                   <Image
                     width={1000}
                     height={1000}
@@ -185,7 +181,7 @@ export default function Home() {
                 <button
                   key={index}
                   onClick={(e) => swipeHandler(e, index)}
-                  className="h-1 w-9 bg-white/10 rounded-full before:h-1 before:bg-white/5 before:w-1/2 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-full relative"
+                  className="h-1 w-9 bg-white/10 rounded-full before:h-1 before:bg-white/5 before:w-1/2 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-full before:animate-stretch relative"
                 ></button>
               );
             })}

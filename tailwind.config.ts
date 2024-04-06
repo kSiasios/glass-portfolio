@@ -7,17 +7,27 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      "bg-clr": "rgb(var(--bg-color))",
-      "txt-clr": "rgb(var(--text-color))",
-      "brd-clr": "rgb(var(--border-color))",
-    },
+    
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        "bg-clr": "rgb(var(--bg-color))",
+        "txt-clr": "rgb(var(--text-color))",
+        "brd-clr": "rgb(var(--border-color))",
+      },
+      keyframes: {
+        stretch: {
+          "0%": {width: "0"},
+          "100%": {width: "100%"}
+        }
+      },
+      animation: {
+        stretch: "stretch 15s linear forwards"
+      }
     },
   },
   plugins: [],

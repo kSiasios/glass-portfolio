@@ -68,14 +68,16 @@ body {
     align-items: center;
     /* border: 2px solid rgba(255, 255, 255, 0.1); */
     box-sizing: border-box;
-    background: radial-gradient(
-          100% 100% at 0% 0%,
-          rgb(var(--light-accent)) 15%,
-          rgb(var(--dark-accent)) 85%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    background: radial-gradient(100% 100% at 0% 0%,
+        rgb(var(--light-accent)) 15%,
+        rgb(var(--dark-accent)) 85%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+      ,
       #ffffff;
-    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
+    /* box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
+      inset -4px -4px 10px 5px rgba(0, 0, 0, 0.25),
+      inset 0 0 0 2px rgba(var(--border-color) / 0.1); */
+    box-shadow:
       inset -4px -4px 10px 5px rgba(0, 0, 0, 0.25),
       inset 0 0 0 2px rgba(var(--border-color) / 0.1);
     color: rgba(var(--text-color) / 0.7);
@@ -86,14 +88,16 @@ body {
   .round-button:focus-visible {
     box-sizing: border-box;
 
-    background: radial-gradient(
-          100% 100% at 100% 100%,
-          rgb(var(--light-accent)) 15%,
-          rgb(var(--dark-accent)) 85%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    background: radial-gradient(100% 100% at 100% 100%,
+        rgb(var(--light-accent)) 15%,
+        rgb(var(--dark-accent)) 85%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+      ,
       #ffffff;
-    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
+    /* box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
+      inset 4px 4px 10px 5px rgba(0, 0, 0, 0.35),
+      inset 0 0 0 2px rgba(var(--border-color) / 0.1); */
+    box-shadow:
       inset 4px 4px 10px 5px rgba(0, 0, 0, 0.35),
       inset 0 0 0 2px rgba(var(--border-color) / 0.1);
     color: rgba(var(--text-color) / 0.9);
