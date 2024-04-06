@@ -14,6 +14,10 @@ export default function Home() {
   const projectsArray = Object.values(projects);
   const [projectIndex, setProjectIndex] = useState(0);
   const [theme, setTheme] = useState("");
+  const cardDuration = 5000; // 1 second
+  // let intervalHandler: ReturnType<typeof setTimeout>[];
+  // const arr = ["a", "b", "c"];
+  // console.log();
 
   useEffect(() => {
     if (!localStorage.getItem("prefered-theme")) {
@@ -30,11 +34,26 @@ export default function Home() {
       }
     }
 
+    // intervalHandler.push(
+    //   setTimeout(() => {
+    //     swipeHandler(projectIndex + 1);
+    //   }, cardDuration)
+    // );
+
     // console.log(theme);
   });
 
-  function swipeHandler(event: any, index: any) {
-    event.preventDefault();
+  function swipeHandler(index: any, event?: any) {
+    console.log(index);
+    // console.log(event);
+    // clearTimeout(intervalHandler[-1]);
+    // // clearInterval(intervalHandler);
+    // intervalHandler = setTimeout(() => {
+    //   swipeHandler(projectIndex + 1);
+    // }, cardDuration);
+    if (event) {
+      event.preventDefault();
+    }
     if (index < 0) {
       setProjectIndex(projectsArray.length - 1);
       return;
@@ -79,7 +98,7 @@ export default function Home() {
           <p className="font-thin" aria-label="Greeting">
             Hi! I'm
           </p>
-          <h2 className="text-4xl font-bold text-white" aria-label="Name">
+          <h2 className="text-4xl font-bold text-inherit" aria-label="Name">
             Konstantinos Siasios
           </h2>
           <div
@@ -102,24 +121,24 @@ export default function Home() {
           </div>
         </div>
         <div className="font-extralight" aria-label="Profile bullet points">
-          <ul className="flex flex-col gap-6 text-white/70">
+          <ul className="flex flex-col gap-6 list">
             <li>
               <p className="font-extralight">
                 BSc in{" "}
-                <span className="font-bold text-white">Computer Science</span>
+                <span className="font-bold text-inherit">Computer Science</span>
               </p>
             </li>
             <li>
               <p>
                 Experienced in{" "}
-                <span className="font-bold text-white">React.js</span>
+                <span className="font-bold text-inherit">React.js</span>
               </p>
             </li>
             <li>
               <p>
                 Front-end oriented, interested in web{" "}
-                <span className="font-bold text-white">design</span> and{" "}
-                <span className="font-bold text-white">development</span>
+                <span className="font-bold text-inherit">design</span> and{" "}
+                <span className="font-bold text-inherit">development</span>
               </p>
             </li>
           </ul>
@@ -142,7 +161,7 @@ export default function Home() {
                 }}
                 className="transition-translate duration-300 linear inline-flex justify-between items-start gap-6 min-w-full"
               >
-                <figure className="overflow-hidden flex-1 bg-black rounded-3xl border-2 border-white/10 h-full w-full">
+                <figure className="overflow-hidden flex-1 bg-bg-clr rounded-3xl border-2 border-white/10 h-full w-full">
                   <Image
                     width={1000}
                     height={1000}
@@ -157,7 +176,8 @@ export default function Home() {
                   <p>{project.description}</p>
                   <Link
                     className="round-button py-6 px-20 w-fit font-bold"
-                    href="/"
+                    target="_blank"
+                    href={project["project-link"]}
                   >
                     VIEW
                   </Link>
@@ -171,7 +191,7 @@ export default function Home() {
         >
           <button
             className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
-            onClick={(e) => swipeHandler(e, projectIndex - 1)}
+            onClick={(e) => swipeHandler(projectIndex - 1, e)}
           >
             <IoIosArrowBack />
           </button>
@@ -180,21 +200,23 @@ export default function Home() {
               return (
                 <button
                   key={index}
-                  onClick={(e) => swipeHandler(e, index)}
-                  className="h-1 w-9 bg-white/10 rounded-full before:h-1 before:bg-white/5 before:w-1/2 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-full before:animate-stretch relative"
+                  onClick={(e) => swipeHandler(index, e)}
+                  className={`${index === projectIndex ? "playing" : ""} ${
+                    index < projectIndex ? "finished" : ""
+                  } indicator h-1 w-9 rounded-full relative`}
                 ></button>
               );
             })}
           <button
             className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
-            onClick={(e) => swipeHandler(e, projectIndex + 1)}
+            onClick={(e) => swipeHandler(projectIndex + 1, e)}
           >
             <IoIosArrowForward />
           </button>
         </div>
       </section>
       <section className="z-50 my-5 glass-component flex gap-10 px-14 py-11 col-span-8 h-fit">
-        <h4 className="absolute top-0 -translate-y-1/2 glass-component py-2 px-8 shadow-lg text-2xl font-bold text-white">
+        <h4 className="absolute top-0 -translate-y-1/2 glass-component py-2 px-8 shadow-lg text-2xl font-bold text-inherit">
           Socials
         </h4>
         <SocialLink href="/">
@@ -202,7 +224,7 @@ export default function Home() {
         </SocialLink>
       </section>
       <section className="z-50 my-5 glass-component col-span-4 px-14 py-11 h-fit">
-        <h4 className="absolute top-0 -translate-y-1/2 glass-component py-2 px-8 shadow-lg text-2xl font-bold text-white">
+        <h4 className="absolute top-0 -translate-y-1/2 glass-component py-2 px-8 shadow-lg text-2xl font-bold text-inherit">
           Skills
         </h4>
         <div className="inline-flex gap-10 overflow-x-hidden overflow-y-visible w-full rounded-3xl">

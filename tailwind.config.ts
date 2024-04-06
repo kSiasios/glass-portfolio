@@ -7,7 +7,6 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -19,15 +18,6 @@ const config: Config = {
         "txt-clr": "rgb(var(--text-color))",
         "brd-clr": "rgb(var(--border-color))",
       },
-      keyframes: {
-        stretch: {
-          "0%": {width: "0"},
-          "100%": {width: "100%"}
-        }
-      },
-      animation: {
-        stretch: "stretch 15s linear forwards"
-      }
     },
   },
   plugins: [],
