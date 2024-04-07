@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --text-color: 0 0 0;
+    --text-color: 75 75 75;
     --bg-color: 255 255 255;
     --border-color: 0 0 0;
     --light-accent: 255 255 255;
@@ -13,7 +13,7 @@
   }
 
   body[data-prefered-theme="light"] {
-    --text-color: 0 0 0;
+    --text-color: 75 75 75;
     --bg-color: 255 255 255;
     --border-color: 0 0 0;
     --light-accent: 255 255 255;
@@ -21,7 +21,7 @@
   }
 
   body[data-prefered-theme="dark"] {
-    --text-color: 255 255 255;
+    --text-color: 230 230 230;
     --bg-color: 0 0 0;
     --border-color: 255 255 255;
     --light-accent: 45 45 45;
@@ -30,7 +30,7 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --text-color: 255 255 255;
+      --text-color: 230 230 230;
       --bg-color: 0 0 0;
       --border-color: 255 255 255;
       --light-accent: 45 45 45;
@@ -78,7 +78,7 @@ body {
     /* box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
       inset -4px -4px 10px 5px rgba(0, 0, 0, 0.25),
       inset 0 0 0 2px rgba(var(--border-color) / 0.1); */
-    box-shadow: inset -4px -4px 10px 5px rgba(0, 0, 0, 0.25),
+    box-shadow: inset -4px -4px 10px 5px rgba(0, 0, 0, 0.05),
       inset 0 0 0 2px rgba(var(--border-color) / 0.1);
     color: rgba(var(--text-color) / 0.7);
   }
@@ -98,19 +98,22 @@ body {
     /* box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25),
       inset 4px 4px 10px 5px rgba(0, 0, 0, 0.35),
       inset 0 0 0 2px rgba(var(--border-color) / 0.1); */
-    box-shadow: inset 4px 4px 10px 5px rgba(0, 0, 0, 0.35),
+    box-shadow: inset 4px 4px 10px 5px rgba(0, 0, 0, 0.05),
       inset 0 0 0 2px rgba(var(--border-color) / 0.1);
-    color: rgba(var(--text-color) / 0.9);
+    color: rgba(var(--text-color) / 0.8);
   }
   .indicator {
-    background: rgb(var(--dark-accent));
+    /* background: rgb(var(--dark-accent)); */
+    /* background: rgb(var(--light-accent)); */
+    background-color: rgba(var(--text-color) / 0.25);
   }
 
   .indicator::before {
-    background: rgb(var(--light-accent));
+    /* background: rgb(var(--light-accent)); */
+    /* background: rgb(var(--text-color)); */
     height: 4px;
     width: 0;
-    background-color: rgba(var(--text-color) / 0.05);
+    background-color: rgba(var(--text-color) / 0.5);
     content: "";
     position: absolute;
     top: 0;

@@ -20,7 +20,8 @@ export default function Home() {
   // console.log();
 
   useEffect(() => {
-    if (!localStorage.getItem("prefered-theme")) {
+    let savedTheme = localStorage.getItem("prefered-theme");
+    if (!savedTheme) {
       if (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -32,6 +33,9 @@ export default function Home() {
         setTheme("light");
         localStorage.setItem("prefered-theme", "light");
       }
+    } else {
+      setTheme(savedTheme);
+      document.body.setAttribute("data-prefered-theme", savedTheme);
     }
 
     // intervalHandler.push(
@@ -148,7 +152,7 @@ export default function Home() {
         </Link>
       </section>
       <section
-        className="z-50 flex flex-col items-start gap-9 text-2xl col-span-7 mt-[72px] p-14 pt-24 relative h-fit glass-component"
+        className="z-50 flex flex-col items-start gap-9 text-2xl col-span-7 mt-[72px] p-14 pt-14 relative h-fit glass-component"
         aria-label="Profile Card"
       >
         <div className="flex items-start justify-start w-full overflow-hidden">
@@ -171,9 +175,9 @@ export default function Home() {
                   />
                   <figcaption className="hidden">{`Cover image for the "${project.name}" project`}</figcaption>
                 </figure>
-                <div className="flex-1 flex flex-col gap-11">
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
+                <div className="flex-1 flex flex-col gap-10">
+                  <h3 className="font-bold text-4xl">{project.name}</h3>
+                  <p className="text-2xl leading-9">{project.description}</p>
                   <Link
                     className="round-button py-6 px-20 w-fit font-bold"
                     target="_blank"
@@ -269,7 +273,7 @@ export default function Home() {
       </section>
       <div
         aria-hidden
-        className="pointer-events-none overflow-hidden blur-[200px] z-0 absolute top-0 left-0 w-full h-full"
+        className=" max-w-[1440px] mx-auto pointer-events-none overflow-hidden blur-[200px] z-0 absolute top-0 left-1/2 -translate-x-1/2 w-full h-full"
       >
         <div className="absolute top-0 left-0 pointer-events-none aspect-video w-[500px] bg-gradient-conic from-[#FF7676] to-[#A128FF]"></div>
         <div className="absolute bottom-0 right-0 pointer-events-none aspect-video w-[500px] bg-gradient-conic from-[#0094FF] to-[#FFC700] -rotate-45"></div>
