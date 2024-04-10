@@ -117,6 +117,7 @@ body {
     color: rgba(var(--text-color) / 0.7);
   }
 
+  .round-button.selected,
   .round-button:hover,
   .round-button:focus,
   .round-button:focus-visible {
@@ -185,6 +186,10 @@ body {
 
   .scroller-container {
     mask: linear-gradient(90deg, transparent 10%, black, transparent 90%);
+  }
+
+  .transform-origin-bottom-center {
+    transform-origin: 50% 100%;
   }
 }
 

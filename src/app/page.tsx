@@ -1,33 +1,23 @@
 "use client";
 
+import Decoration from "@/app/components/Decoration";
+import ProfileCard from "@/app/components/ProfileCard";
+import ProjectsSlideshow from "@/app/components/ProjectsSlideshow";
+import Skills from "@/app/components/Skills";
+import Socials from "@/app/components/Socials";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  FaCodepen,
-  FaCss3Alt,
-  FaEnvelope,
-  FaGit,
-  FaGithub,
-  FaHtml5,
-  FaJava,
-  FaJs,
-  FaLinkedin,
-  FaNode,
-  FaPhoneAlt,
-  FaPhp,
-  FaReact,
-  FaVuejs,
-} from "react-icons/fa";
+import { FaVolumeHigh, FaVolumeXmark } from "react-icons/fa6";
 import { IoMoon, IoSunny } from "react-icons/io5";
-import Decoration from "./components/Decoration";
-import ProfileCard from "./components/ProfileCard";
-import ProjectsSlideshow from "./components/ProjectsSlideshow";
-import Scroller from "./components/Scroller";
-import SkillContainer from "./components/SkillContainer";
-import SocialLink from "./components/SocialLink";
 
 export default function Home() {
   const [theme, setTheme] = useState("");
+  const [muted, setMuted] = useState(true);
   const cardDuration = 5000; // 1 second
+
+  const buttonAudio = new Audio("/public_Assets/sound/button_sound.wav");
+  const today = new Date();
+  const currentYear = today.getFullYear();
 
   useEffect(() => {
     let savedTheme = localStorage.getItem("prefered-theme");
@@ -65,83 +55,104 @@ export default function Home() {
   return (
     <main
       data-prefered-theme={theme}
-      className="mx-auto max-w-[1440px] p-3 sm:p-6 bg-bg-clr w-full h-fit grid grid-cols-12 gap-6"
+      className="mx-auto max-w-[1440px] p-3 sm:p-6 bg-bg-clr w-full h-fit grid grid-cols-12 gap-6 relative"
     >
       <ProfileCard />
-      <ProjectsSlideshow />
-      <section className="z-50 my-5 glass-component flex gap-10 px-3 sm:px-14 py-11 col-span-12 md:col-span-8 h-fit">
-        <h4 className="absolute left-1/2 lg:left-auto -translate-x-1/2 lg:translate-x-0 top-0 -translate-y-1/2 glass-component py-2 px-8 shadow-lg text-2xl font-bold text-inherit">
-          Socials
-        </h4>
-        <Scroller className="text-6xl">
-          <SocialLink href="/">
-            <FaGithub />
-          </SocialLink>
-          <SocialLink href="/">
-            <FaLinkedin />
-          </SocialLink>
-          <SocialLink href="/">
-            <FaEnvelope />
-          </SocialLink>
-          <SocialLink href="/">
-            <FaPhoneAlt />
-          </SocialLink>
-          <SocialLink href="/">
-            <FaCodepen />
-          </SocialLink>
-        </Scroller>
-      </section>
-      <section className="z-50 my-5 glass-component flex gap-10 px-3 sm:px-14 py-11 col-span-12 md:col-span-4 h-fit">
-        <h4 className="absolute left-1/2 lg:left-auto -translate-x-1/2 lg:translate-x-0 top-0 -translate-y-1/2 glass-component py-2 px-8 shadow-lg text-2xl font-bold text-inherit">
-          Skills
-        </h4>
-        <Scroller className="overflow-visible text-6xl">
-          <SkillContainer>
-            <FaReact />
-          </SkillContainer>
-          <SkillContainer>
-            <FaNode />
-          </SkillContainer>
-          <SkillContainer>
-            <FaVuejs />
-          </SkillContainer>
-          <SkillContainer>
-            <FaJs />
-          </SkillContainer>
-          <SkillContainer>
-            <FaHtml5 />
-          </SkillContainer>
-          <SkillContainer>
-            <FaCss3Alt />
-          </SkillContainer>
-          <SkillContainer>
-            <FaPhp />
-          </SkillContainer>
-          <SkillContainer>
-            <FaGit />
-          </SkillContainer>
-          <SkillContainer>
-            <FaJava />
-          </SkillContainer>
-        </Scroller>
-      </section>
-      <section className="z-50 left-1/2 -translate-x-1/2 glass-component absolute inline-flex gap-4 p-2 text-4xl overflow-y-visible">
+      <ProjectsSlideshow muted={muted} />
+      <Socials />
+      <Skills />
+      <Decoration />
+      <footer className="absolute top-full inline-flex justify-center gap-2 items-center w-full py-9">
+        &copy; {currentYear}{" "}
+        <Link
+          href="https://www.linkedin.com/in/konstantinos-siasios/"
+          className="hover:underline focus:underline font-bold"
+        >
+          Konstantinos Siasios
+        </Link>
+      </footer>
+      {/* Theme Toggler */}
+      <section className="z-50 left-1/2 top-0 mt-6 -translate-x-1/2 glass-component absolute inline-flex gap-4 p-2 text-4xl overflow-y-visible">
         <button
           aria-label="Toggle Light Theme"
-          className="round-button"
+          className={`round-button ${theme === "light" ? "selected" : ""}`}
           onClick={() => toggleTheme(true)}
+          onMouseEnter={() => {
+            if (theme != "light" && !muted) {
+              buttonAudio.play();
+            }
+          }}
+          onMouseLeave={() => {
+            if (theme != "light" && !muted) {
+              buttonAudio.play();
+            }
+          }}
+          onFocus={() => {
+            if (theme != "light" && !muted) {
+              buttonAudio.play();
+            }
+          }}
+          // onBlur={() => {
+          //   if (theme != "light" && !muted) {
+          //     buttonAudio.play();
+          //   }
+          // }}
         >
           <IoSunny className="p-2" />
         </button>
         <button
           aria-label="Toggle Dark Theme"
-          className="round-button"
+          className={`round-button ${theme === "dark" ? "selected" : ""}`}
           onClick={() => toggleTheme(false)}
+          onMouseEnter={() => {
+            if (theme != "dark" && !muted) {
+              buttonAudio.play();
+            }
+          }}
+          onMouseLeave={() => {
+            if (theme != "dark" && !muted) {
+              buttonAudio.play();
+            }
+          }}
+          onFocus={() => {
+            if (theme != "light" && !muted) {
+              buttonAudio.play();
+            }
+          }}
         >
           <IoMoon className="p-2" />
         </button>
       </section>
-      <Decoration />
+      {/* Sound Toggler */}
+      <section className="z-50 right-0 top-0 mt-6 -translate-x-1/2 glass-component absolute inline-flex gap-4 p-2 text-4xl overflow-y-visible">
+        <button
+          aria-label="Toggle Sound"
+          className={`round-button ${theme === "light" ? "selected" : ""}`}
+          onClick={() => setMuted(!muted)}
+          onMouseEnter={() => {
+            if (!muted) {
+              buttonAudio.play();
+            }
+          }}
+          onMouseLeave={() => {
+            if (!muted) {
+              buttonAudio.play();
+            }
+          }}
+          onFocus={() => {
+            if (!muted) {
+              buttonAudio.play();
+            }
+          }}
+        >
+          {muted ? (
+            <FaVolumeXmark className="p-2" />
+          ) : (
+            <FaVolumeHigh className="p-2" />
+          )}
+          {/* <FaVolumeHigh className="p-2" /> */}
+        </button>
+      </section>
     </main>
   );
 }

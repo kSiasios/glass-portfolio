@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaWrench } from "react-icons/fa";
+import { FaHandPaper, FaLongArrowAltDown, FaWrench } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
 const ProfileCard = () => {
@@ -19,8 +19,10 @@ const ProfileCard = () => {
         />
       </figure>
       <div className="flex flex-col" aria-label="General Information">
-        <p className="font-thin" aria-label="Greeting">
-          Hi! I'm
+        <p className="font-thin inline-flex gap-2" aria-label="Greeting">
+          Hi!{" "}
+          <FaHandPaper className="animate-wave transform-origin-bottom-center" />{" "}
+          I&apos;m
         </p>
         <h2
           className="text-2xl xs:text-4xl font-bold text-inherit"
@@ -70,7 +72,13 @@ const ProfileCard = () => {
           </li>
         </ul>
       </div>
-      <Link className="underline" href="/">
+      <Link
+        className="underline inline-flex items-end"
+        target="_blank"
+        download="Konstantinos Siasios - Resume"
+        href="./public_assets/resume/Konstantinos Siasios - Resume.pdf"
+      >
+        <FaLongArrowAltDown className="animate-bounce" />
         View my resume
       </Link>
     </section>

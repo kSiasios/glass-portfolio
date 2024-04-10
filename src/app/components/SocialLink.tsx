@@ -8,7 +8,11 @@ interface SocialLinkProps {
 
 const SocialLink = (props: SocialLinkProps) => {
   return (
-    <Link className="w-28 h-28 round-button aspect-square" href={props.href}>
+    <Link
+      className="w-28 h-28 round-button aspect-square"
+      target="_blank"
+      href={props.href}
+    >
       {props.children}
     </Link>
   );

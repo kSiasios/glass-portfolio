@@ -6,7 +6,7 @@ interface ScrollerProps {
 }
 
 const Scroller = ({ children, className }: ScrollerProps) => {
-  console.log(children);
+  // console.log(children);
 
   const childrenArray = [];
 

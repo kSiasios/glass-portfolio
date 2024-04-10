@@ -5,10 +5,15 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-const ProjectsSlideshow = () => {
+interface GenericProps {
+  muted?: boolean;
+}
+
+const ProjectsSlideshow = ({ muted }: GenericProps) => {
   const router = useRouter();
   const projectsArray = Object.values(projects);
   const [projectIndex, setProjectIndex] = useState(0);
+  const [style, setStyle] = useState({});
 
   function swipeHandler(index: any, event?: any) {
     if (event) {
@@ -27,6 +32,10 @@ const ProjectsSlideshow = () => {
     setProjectIndex(index);
     router.push(`#project-${index}`);
   }
+
+  const buttonAudio = new Audio("/public_Assets/sound/button_sound.wav");
+  // let style: CSSProperties = {};
+
   return (
     <section
       className="z-50 flex flex-col items-start gap-9 text-lg xs:text-2xl col-span-12 lg:col-span-7 lg:mt-[72px] relative h-fit"
@@ -61,22 +70,36 @@ const ProjectsSlideshow = () => {
                 </div>
               </div>
               <Link
-                className="round-button py-6 px-20 w-fit font-bold"
+                className="round-button py-6 px-20 w-fit font-bold animate-wiggle"
                 target="_blank"
                 aria-hidden
                 onFocusCapture={(e) => {
                   // setFocusing(true);
                   swipeHandler(index, e);
                 }}
-                // onBlur={() => {
-                //   setFocusing(false);
-                // }}
+                style={style}
                 href={project["project-link"]}
+                onMouseEnter={() => {
+                  setStyle({
+                    animationPlayState: "paused",
+                    animation: "none",
+                  });
+                  if (muted) {
+                    return;
+                  }
+                  buttonAudio.play();
+                }}
+                onMouseLeave={() => {
+                  setStyle({});
+                  if (muted) {
+                    return;
+                  }
+                  buttonAudio.play();
+                }}
               >
                 VIEW
               </Link>
             </article>
-            // {/* </Link> */}
           ))}
       </div>
       <div
@@ -85,7 +108,12 @@ const ProjectsSlideshow = () => {
       >
         <button
           className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
-          onClick={(e) => swipeHandler(projectIndex - 1, e)}
+          onClick={(e) => {
+            if (!muted) {
+              buttonAudio.play();
+            }
+            swipeHandler(projectIndex - 1, e);
+          }}
         >
           <IoIosArrowBack />
         </button>
@@ -104,7 +132,12 @@ const ProjectsSlideshow = () => {
           })}
         <button
           className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
-          onClick={(e) => swipeHandler(projectIndex + 1, e)}
+          onClick={(e) => {
+            if (!muted) {
+              buttonAudio.play();
+            }
+            swipeHandler(projectIndex + 1, e);
+          }}
         >
           <IoIosArrowForward />
         </button>
