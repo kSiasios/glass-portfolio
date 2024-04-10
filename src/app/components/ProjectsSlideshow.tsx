@@ -33,7 +33,7 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
     router.push(`#project-${index}`);
   }
 
-  const buttonAudio = new Audio("/public_Assets/sound/button_sound.wav");
+  // const buttonAudio = new Audio("/public_Assets/sound/button_sound.wav");
   // let style: CSSProperties = {};
 
   return (
@@ -84,17 +84,17 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
                     animationPlayState: "paused",
                     animation: "none",
                   });
-                  if (muted) {
-                    return;
-                  }
-                  buttonAudio.play();
+                  // if (muted) {
+                  //   return;
+                  // }
+                  // buttonAudio.play();
                 }}
                 onMouseLeave={() => {
                   setStyle({});
-                  if (muted) {
-                    return;
-                  }
-                  buttonAudio.play();
+                  // if (muted) {
+                  //   return;
+                  // }
+                  // buttonAudio.play();
                 }}
               >
                 VIEW
@@ -109,9 +109,9 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
         <button
           className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
           onClick={(e) => {
-            if (!muted) {
-              buttonAudio.play();
-            }
+            // if (!muted) {
+            //   buttonAudio.play();
+            // }
             swipeHandler(projectIndex - 1, e);
           }}
         >
@@ -133,9 +133,9 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
         <button
           className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
           onClick={(e) => {
-            if (!muted) {
-              buttonAudio.play();
-            }
+            // if (!muted) {
+            //   buttonAudio.play();
+            // }
             swipeHandler(projectIndex + 1, e);
           }}
         >
