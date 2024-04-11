@@ -18,7 +18,7 @@ const Skills = () => {
       <h4 className="absolute left-1/2 lg:left-auto -translate-x-1/2 lg:translate-x-0 top-0 -translate-y-1/2 glass-component py-2 px-8 shadow-lg text-2xl font-bold text-inherit">
         Skills
       </h4>
-      <Scroller className="overflow-visible text-6xl">
+      <Scroller className="text-6xl">
         <SkillContainer>
           <FaReact />
         </SkillContainer>

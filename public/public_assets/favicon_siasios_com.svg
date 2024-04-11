@@ -1,0 +1,57 @@
+<svg width="628" height="628" viewBox="0 0 628 628" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="314" cy="314" r="314" fill="#232323"/>
+<circle cx="314" cy="314" r="314" fill="url(#paint0_radial_20_5)" fill-opacity="0.4"/>
+<circle cx="314" cy="314" r="314" fill="url(#paint1_radial_20_5)" fill-opacity="0.4"/>
+<circle cx="314" cy="314" r="308" stroke="url(#paint2_linear_20_5)" stroke-opacity="0.2" stroke-width="12"/>
+<mask id="mask0_20_5" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="628" height="628">
+<circle cx="314" cy="314" r="314" fill="#232323"/>
+<circle cx="314" cy="314" r="314" fill="url(#paint3_radial_20_5)" fill-opacity="0.4"/>
+<circle cx="314" cy="314" r="314" fill="url(#paint4_radial_20_5)" fill-opacity="0.4"/>
+<circle cx="314" cy="314" r="308" stroke="url(#paint5_linear_20_5)" stroke-opacity="0.2" stroke-width="12"/>
+</mask>
+<g mask="url(#mask0_20_5)">
+<g filter="url(#filter0_f_20_5)">
+<circle cx="122.5" cy="58.5" r="191.5" fill="#FF64E6" fill-opacity="0.6"/>
+</g>
+<g filter="url(#filter1_f_20_5)">
+<circle cx="551.5" cy="533.5" r="191.5" fill="#00F0FF" fill-opacity="0.7"/>
+</g>
+<path d="M243.797 346.34C249.067 341.183 256.576 338.185 262.886 334.528C278.146 325.686 293.038 315.874 307.864 306.336C340.663 285.235 372.956 263.208 404.486 240.262C426.135 224.507 447.803 207.957 466.919 189.164C468.811 187.303 483.533 171.877 479.209 168.542C477.143 166.949 471.48 169.313 469.73 169.945C460.987 173.102 452.581 177.54 444.593 182.246C407.965 203.828 370.969 228.163 340.943 258.501C327.21 272.377 314.041 287.217 302.895 303.269C296.201 312.91 290.805 323.402 285.44 333.81C280.091 344.19 274.971 354.672 268.705 364.547C259.804 378.574 249.631 391.715 239.025 404.486C223.586 423.075 205.911 442.786 183.653 453.234C175.612 457.009 165.535 460.16 156.523 458.585C151.809 457.762 145.623 454.133 147.272 448.47C149.571 440.577 158.024 433.588 163.779 428.37C175.815 417.458 189.594 408.98 203.821 401.223C257.335 372.045 315.973 354.002 375.003 339.684" stroke="white" stroke-width="12" stroke-linecap="round"/>
+</g>
+<defs>
+<filter id="filter0_f_20_5" x="-289.5" y="-353.5" width="824" height="824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="110.25" result="effect1_foregroundBlur_20_5"/>
+</filter>
+<filter id="filter1_f_20_5" x="139.5" y="121.5" width="824" height="824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="110.25" result="effect1_foregroundBlur_20_5"/>
+</filter>
+<radialGradient id="paint0_radial_20_5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(45) scale(888.126)">
+<stop stop-opacity="0"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint1_radial_20_5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(628 628) rotate(-135) scale(888.126)">
+<stop offset="0.7" stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<linearGradient id="paint2_linear_20_5" x1="0" y1="0" x2="628" y2="628" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1"/>
+</linearGradient>
+<radialGradient id="paint3_radial_20_5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(45) scale(888.126)">
+<stop stop-opacity="0"/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint4_radial_20_5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(628 628) rotate(-135) scale(888.126)">
+<stop offset="0.7" stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+<linearGradient id="paint5_linear_20_5" x1="0" y1="0" x2="628" y2="628" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1"/>
+</linearGradient>
+</defs>
+</svg>

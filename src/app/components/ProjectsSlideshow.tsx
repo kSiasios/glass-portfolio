@@ -33,6 +33,25 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
     router.push(`#project-${index}`);
   }
 
+  function pauseAnimation() {
+    setStyle({
+      animationPlayState: "paused",
+      animation: "none",
+    });
+    // if (muted) {
+    //   return;
+    // }
+    // buttonAudio.play();
+  }
+
+  function playAnimation() {
+    setStyle({});
+    // if (muted) {
+    //   return;
+    // }
+    // buttonAudio.play();
+  }
+
   // const buttonAudio = new Audio("/public_Assets/sound/button_sound.wav");
   // let style: CSSProperties = {};
 
@@ -50,7 +69,7 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
               className="glass-component transition-all duration-300 linear flex flex-col justify-between items-center gap-6 min-w-full p-7 xs:p-14 border-none"
             >
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <figure className="overflow-hidden flex-1 bg-bg-clr rounded-3xl border-2 border-txt-clr/15 h-full w-full">
+                <figure className="mx-auto sm:mx-0 max-w-[50%] overflow-hidden flex-1 bg-bg-clr rounded-3xl border-2 border-txt-clr/15 h-full w-full">
                   <Image
                     width={1000}
                     height={1000}
@@ -61,11 +80,16 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
                   <figcaption className="hidden">{`Cover image for the "${project.name}" project`}</figcaption>
                 </figure>
                 <div className="flex-1 flex flex-col gap-5 sm:gap-10">
-                  <h3 className="font-bold text-2xl xs:text-4xl">
+                  <h3 className="mx-auto sm:mx-0 font-bold text-2xl xs:text-4xl">
                     {project.name}
                   </h3>
                   <p className="text-lg xs:text-2xl leading-9">
-                    {project.description}
+                    <span className="block sm:hidden">
+                      {project.description}
+                    </span>
+                    <span className="hidden sm:block">
+                      {project["extended-description"]}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -79,23 +103,8 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
                 }}
                 style={style}
                 href={project["project-link"]}
-                onMouseEnter={() => {
-                  setStyle({
-                    animationPlayState: "paused",
-                    animation: "none",
-                  });
-                  // if (muted) {
-                  //   return;
-                  // }
-                  // buttonAudio.play();
-                }}
-                onMouseLeave={() => {
-                  setStyle({});
-                  // if (muted) {
-                  //   return;
-                  // }
-                  // buttonAudio.play();
-                }}
+                onMouseEnter={pauseAnimation}
+                onMouseLeave={playAnimation}
               >
                 VIEW
               </Link>

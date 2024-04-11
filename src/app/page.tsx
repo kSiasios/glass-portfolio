@@ -43,8 +43,9 @@ export default function Home() {
     }
   });
 
-  function toggleTheme(selector?: boolean) {
-    if (selector) {
+  function toggleTheme() {
+    // console.log(event);
+    if (theme === "dark") {
       setTheme("light");
       localStorage.setItem("prefered-theme", "light");
       // document.body.attributes.setNamedItem("data-prefered-theme") = "";
@@ -80,22 +81,23 @@ export default function Home() {
         <button
           aria-label="Toggle Light Theme"
           className={`round-button ${theme === "light" ? "selected" : ""}`}
-          onClick={() => toggleTheme(true)}
-          onMouseEnter={() => {
-            // if (theme != "light" && !muted) {
-            //   buttonAudio.play();
-            // }
-          }}
-          onMouseLeave={() => {
-            // if (theme != "light" && !muted) {
-            //   buttonAudio.play();
-            // }
-          }}
-          onFocus={() => {
-            // if (theme != "light" && !muted) {
-            //   buttonAudio.play();
-            // }
-          }}
+          onClick={toggleTheme}
+          disabled={theme === "light"}
+          // onMouseEnter={() => {
+          //   // if (theme != "light" && !muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          // }}
+          // onMouseLeave={() => {
+          //   // if (theme != "light" && !muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          // }}
+          // onFocus={() => {
+          //   // if (theme != "light" && !muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          // }}
           // onBlur={() => {
           //   if (theme != "light" && !muted) {
           //     buttonAudio.play();
@@ -107,22 +109,23 @@ export default function Home() {
         <button
           aria-label="Toggle Dark Theme"
           className={`round-button ${theme === "dark" ? "selected" : ""}`}
-          onClick={() => toggleTheme(false)}
-          onMouseEnter={() => {
-            // if (theme != "dark" && !muted) {
-            //   buttonAudio.play();
-            // }
-          }}
-          onMouseLeave={() => {
-            // if (theme != "dark" && !muted) {
-            //   buttonAudio.play();
-            // }
-          }}
-          onFocus={() => {
-            // if (theme != "light" && !muted) {
-            //   buttonAudio.play();
-            // }
-          }}
+          onClick={toggleTheme}
+          disabled={theme === "dark"}
+          // onMouseEnter={() => {
+          //   // if (theme != "dark" && !muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          // }}
+          // onMouseLeave={() => {
+          //   // if (theme != "dark" && !muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          // }}
+          // onFocus={() => {
+          //   // if (theme != "light" && !muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          // }}
         >
           <IoMoon className="p-2" />
         </button>

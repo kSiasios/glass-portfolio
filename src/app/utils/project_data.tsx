@@ -2,6 +2,8 @@ const projects = {
   "0": {
     name: "Orthopaignia",
     description:
+      "Orthopaignia is an app to evaluate the spelling skills of Greek elementary school students and help them improve uppon them.",
+    "extended-description":
       "Orthopaignia is an app to evaluate the spelling skills of Greek elementary school students and help them improve uppon them. It also provides a dashboard for the teacher to analyze the data of their students.",
     "cover-image": "/public_assets/banners/orthopaignia.png",
     "prefered-color": "red",
@@ -11,6 +13,8 @@ const projects = {
     name: "LoopoKrator",
     description:
       "LoopoKrator.com is my personal blog created for me to expose my ideas to the world.",
+    "extended-description":
+      "LoopoKrator.com is my personal blog created for me to expose my ideas to the world.",
     "cover-image": "/public_assets/banners/loopokrator.png",
     "prefered-color": "orange",
     "project-link": "https://loopokrator.com/",
@@ -18,6 +22,8 @@ const projects = {
   "2": {
     name: "Nefeli's Rooms",
     description:
+      "Nefeli's Rooms is the first business website I ever created. It is a promotional website for a business with rentable apartments.",
+    "extended-description":
       "Nefeli's Rooms is the first business website I ever created. It is a promotional website for a business with rentable apartments.",
     "cover-image": "/public_assets/banners/nefelis_rooms.png",
     "prefered-color": "blue",
@@ -27,6 +33,8 @@ const projects = {
     name: "U Jacka",
     description:
       "U Jacka is a promotional website for a business with rentable apartments and studios.",
+    "extended-description":
+      "U Jacka is a promotional website for a business with rentable apartments and studios.",
     "cover-image": "https://www.ujacka.gr/images/ujackaLogo.png",
     "prefered-color": "gold",
     "project-link": "https://www.ujacka.gr/",
@@ -35,6 +43,8 @@ const projects = {
     name: "Bruni's Apartments",
     description:
       "Bruni's Apartments is a promotional website for a business with rentable apartments and studios.",
+    "extended-description":
+      "Bruni's Apartments is a promotional website for a business with rentable apartments and studios.",
     "cover-image": "https://www.brunisapartments.com/logo.svg",
     "prefered-color": "green",
     "project-link": "https://www.brunisapartments.com",
@@ -42,6 +52,8 @@ const projects = {
   "5": {
     name: "Alexa Photos",
     description:
+      "Photographer portfolio app. Armed with a dashboard that enables the photographer to add, edit and delete almost any content in their app.",
+    "extended-description":
       "Alexa Photos is a web app created for a local photographer to display their work to the public. Armed with a dashboard that enables the photographer to add, edit and delete almost any content in their app.",
     "cover-image": "https://www.alexaphotos.com/logo.svg",
     "prefered-color": "indigo",
@@ -50,6 +62,8 @@ const projects = {
   "6": {
     name: "Mechtopia",
     description:
+      "Mechtopia is a game project developed during a university course. You can download it and play it on Windows!",
+    "extended-description":
       "Mechtopia is a game project developed during a university course. You can download it and play it on Windows!",
     "cover-image": "/public_assets/banners/mechtopia.png",
     "prefered-color": "pink",
