@@ -12,13 +12,13 @@
     --dark-accent: 222 222 222;
   }
 
-  /* body[data-prefered-theme="light"] {
+  body[data-prefered-theme="light"] {
     --text-color: 75 75 75;
     --bg-color: 255 255 255;
     --border-color: 0 0 0;
     --light-accent: 255 255 255;
     --dark-accent: 222 222 222;
-  } */
+  }
 
   body[data-prefered-theme="dark"] {
     --text-color: 230 230 230;
