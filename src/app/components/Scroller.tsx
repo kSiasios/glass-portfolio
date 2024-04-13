@@ -17,19 +17,21 @@ const Scroller = ({ children, className }: ScrollerProps) => {
   //   let childrenWidth = (112 + 40) * Object.values(children).length;
 
   return (
-    <div className={`overflow-x-hidden  ${className} scroller-container`}>
+    <div
+      className={`overflow-x-visible ${className} scroller-container w-full`}
+    >
       <div
-        className="group inline-flex gap-10 animate-scroller scroller h-fit"
+        className="group inline-flex justify-evenly gap-10 sm:animate-scroller scroller h-fit px-2"
         style={{
           animationDuration: `${childrenArray.length * 4}s`,
         }}
       >
         {children}
-        {/* <div className="inline-flex gap-10 group-hover:hidden group-focus-within:hidden"> */}
-        {children}
-        {children}
-        {children}
-        {/* </div> */}
+        <div className="gap-10 hidden sm:inline-flex">
+          {children}
+          {children}
+          {children}
+        </div>
       </div>
     </div>
   );

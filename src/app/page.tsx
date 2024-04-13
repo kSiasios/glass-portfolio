@@ -7,22 +7,22 @@ import Skills from "@/app/components/Skills";
 import Socials from "@/app/components/Socials";
 // import { buttonAudio } from "@/assets/sound/button_sound.wav";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
 export default function Home() {
   const [theme, setTheme] = useState("");
-  const [muted, setMuted] = useState(true);
-  const cardDuration = 5000; // 1 second
+  // const [muted, setMuted] = useState(true);
+  // const cardDuration = 5000; // 1 second
   // const sound = require("");
   // console.log(sound);
   // const [buttonAudio, setButtonAudio] = useState(new Audio(sound));
 
   // const buttonAudio = new Audio("/public_Assets/sound/button_sound.wav");
-  const today = new Date();
-  const currentYear = today.getFullYear();
+  // const today = new Date();
+  const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // setButtonAudio(new Audio("/public_Assets/sound/button_sound.wav"));
     let savedTheme = localStorage.getItem("prefered-theme");
     if (!savedTheme) {
@@ -41,7 +41,7 @@ export default function Home() {
       setTheme(savedTheme);
       document.body.setAttribute("data-prefered-theme", savedTheme);
     }
-  });
+  }, []);
 
   function toggleTheme() {
     // console.log(event);
@@ -58,12 +58,10 @@ export default function Home() {
   }
 
   return (
-    <main
-      data-prefered-theme={theme}
-      className="mx-auto max-w-[1440px] p-3 sm:p-6 bg-bg-clr w-full h-fit grid grid-cols-12 gap-6 relative"
-    >
+    <main className="mx-auto max-w-[1440px] p-3 sm:p-6 bg-bg-clr w-full h-fit grid grid-cols-12 gap-6 relative">
       <ProfileCard />
-      <ProjectsSlideshow muted={muted} />
+      <ProjectsSlideshow />
+      {/* <ProjectsSlideshow muted={muted} /> */}
       <Socials />
       <Skills />
       <Decoration />

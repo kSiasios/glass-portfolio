@@ -9,16 +9,26 @@ interface GenericProps {
   muted?: boolean;
 }
 
-const ProjectsSlideshow = ({ muted }: GenericProps) => {
+// const ProjectsSlideshow = ({ muted }: GenericProps) => {
+const ProjectsSlideshow = () => {
   const router = useRouter();
   const projectsArray = Object.values(projects);
   const [projectIndex, setProjectIndex] = useState(0);
   const [style, setStyle] = useState({});
 
-  function swipeHandler(index: any, event?: any) {
-    if (event) {
-      event.preventDefault();
-    }
+  function swipeBack() {
+    swipeHandler(projectIndex - 1);
+  }
+
+  function swipeNext() {
+    swipeHandler(projectIndex + 1);
+  }
+
+  // function swipeTo(index: any): FocusEventHandler {
+  //   swipeHandler(index);
+  // }
+
+  function swipeHandler(index: any) {
     if (index < 0) {
       setProjectIndex(projectsArray.length - 1);
       router.push(`#project-${projectsArray.length - 1}`);
@@ -60,13 +70,13 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
       className="z-50 flex flex-col items-start gap-9 text-lg xs:text-2xl col-span-12 lg:col-span-7 lg:mt-[72px] relative h-fit"
       aria-label="Profile Card"
     >
-      <div className="flex items-stretch justify-start w-full overflow-hidden gap-6 stripped-glass bg-transparent">
-        {projects &&
+      <div className="flex items-stretch justify-start w-full overflow-auto sm:overflow-hidden gap-6 stripped-glass bg-transparent scroll-smooth scroll-snap-x-mandatory">
+        {projectsArray &&
           projectsArray.map((project, index) => (
             <article
               key={index}
               id={`project-${index}`}
-              className="glass-component transition-all duration-300 linear flex flex-col justify-between items-center gap-6 min-w-full p-7 xs:p-14 border-none"
+              className="glass-component project-card transition-all duration-300 linear flex flex-col justify-between items-center gap-6 min-w-full w-full p-7 xs:p-14 border-none"
             >
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <figure className="mx-auto sm:mx-0 max-w-[50%] overflow-hidden flex-1 bg-bg-clr rounded-3xl border-2 border-txt-clr/15 h-full w-full">
@@ -97,14 +107,11 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
                 className="round-button py-6 px-20 w-fit font-bold animate-wiggle"
                 target="_blank"
                 aria-hidden
-                onFocusCapture={(e) => {
-                  // setFocusing(true);
-                  swipeHandler(index, e);
-                }}
-                style={style}
+                onFocusCapture={() => swipeHandler(index)}
+                // style={style}
                 href={project["project-link"]}
-                onMouseEnter={pauseAnimation}
-                onMouseLeave={playAnimation}
+                // onMouseEnter={pauseAnimation}
+                // onMouseLeave={playAnimation}
               >
                 VIEW
               </Link>
@@ -117,12 +124,13 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
       >
         <button
           className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
-          onClick={(e) => {
-            // if (!muted) {
-            //   buttonAudio.play();
-            // }
-            swipeHandler(projectIndex - 1, e);
-          }}
+          // onClick={(e) => {
+          //   // if (!muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          //   swipeHandler(projectIndex - 1, e);
+          // }}
+          onClick={swipeBack}
         >
           <IoIosArrowBack />
         </button>
@@ -132,7 +140,8 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
               <Link
                 href={`#project-${index}`}
                 key={index}
-                onClick={(e) => swipeHandler(index, e)}
+                onClick={() => swipeHandler(index)}
+                // onClick={swipeTo}
                 className={`${index === projectIndex ? "playing" : ""} ${
                   index < projectIndex ? "finished" : ""
                 } indicator h-1 w-5 xs:w-9 rounded-full relative`}
@@ -141,12 +150,13 @@ const ProjectsSlideshow = ({ muted }: GenericProps) => {
           })}
         <button
           className="p-2 flex justify-center items-center rounded-full hover:bg-white/5 focus:bg-white/5"
-          onClick={(e) => {
-            // if (!muted) {
-            //   buttonAudio.play();
-            // }
-            swipeHandler(projectIndex + 1, e);
-          }}
+          // onClick={(e) => {
+          //   // if (!muted) {
+          //   //   buttonAudio.play();
+          //   // }
+          //   swipeHandler(projectIndex + 1, e);
+          // }}
+          onClick={swipeNext}
         >
           <IoIosArrowForward />
         </button>

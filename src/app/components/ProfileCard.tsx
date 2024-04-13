@@ -11,8 +11,8 @@ const ProfileCard = () => {
     >
       <figure className="glass-component rounded-full absolute top-0 -translate-y-1/2 w-full h-full max-w-36 max-h-36 overflow-hidden">
         <Image
-          width={1000}
-          height={1000}
+          width={144}
+          height={144}
           src="/public_assets/portrait.jpg"
           alt="My profile image"
           className=""
