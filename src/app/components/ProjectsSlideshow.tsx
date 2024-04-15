@@ -79,11 +79,19 @@ const ProjectsSlideshow = () => {
               className="glass-component project-card transition-all duration-300 linear flex flex-col justify-between items-center gap-6 min-w-full w-full p-7 xs:p-14 border-none"
             >
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <figure className="mx-auto sm:mx-0 max-w-[50%] overflow-hidden flex-1 bg-bg-clr rounded-3xl border-2 border-txt-clr/15 h-full w-full">
+                <figure className="relative mx-auto aspect-square sm:mx-0 max-w-[50%] overflow-hidden flex-1 bg-bg-clr rounded-3xl border-2 border-txt-clr/15 h-full w-full">
                   <Image
                     width={1000}
                     height={1000}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover absolute z-0 blur-3xl"
+                    alt={`Cover image for the ${project.name} project`}
+                    aria-hidden
+                    src={project["cover-image"]}
+                  />
+                  <Image
+                    width={1000}
+                    height={1000}
+                    className="h-full w-full object-contain absolute z-10"
                     alt={`Cover image for the ${project.name} project`}
                     src={project["cover-image"]}
                   />
