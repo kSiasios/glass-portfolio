@@ -21,13 +21,16 @@ const Scroller = ({ children, className }: ScrollerProps) => {
       className={`overflow-x-visible ${className} scroller-container w-full`}
     >
       <div
-        className="group inline-flex justify-evenly gap-10 sm:animate-scroller scroller h-fit px-2"
+        className="group inline-flex justify-evenly gap-10 sm:animate-scroller focus-within:animate-none scroller h-fit px-2"
         style={{
           animationDuration: `${childrenArray.length * 4}s`,
         }}
       >
         {children}
-        <div className="gap-10 hidden sm:inline-flex">
+        <div
+          aria-hidden
+          className="gap-10 hidden sm:inline-flex group-focus-within:hidden"
+        >
           {children}
           {children}
           {children}

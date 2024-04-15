@@ -13,6 +13,7 @@ import { IoMoon, IoSunny } from "react-icons/io5";
 export default function Home() {
   const [theme, setTheme] = useState("");
   // const [muted, setMuted] = useState(true);
+  // const buttonAudioRef = React.useRef<HTMLAudioElement | null>(null);
   // const cardDuration = 5000; // 1 second
   // const sound = require("");
   // console.log(sound);
@@ -43,7 +44,26 @@ export default function Home() {
     }
   }, []);
 
+  // function playButtonHoverAudio() {
+  //   if (!muted && buttonAudioRef.current) {
+  //     buttonAudioRef.current.volume = 0.3;
+  //     buttonAudioRef.current.play();
+  //   }
+  // }
+
+  // function playButtonClickAudio() {
+  //   if (!muted && buttonAudioRef.current) {
+  //     buttonAudioRef.current.volume = 0.7;
+  //     buttonAudioRef.current.play();
+  //   }
+  // }
+
+  // function toggleMuted() {
+  //   setMuted(!muted);
+  // }
+
   function toggleTheme() {
+    // playButtonClickAudio();
     // console.log(event);
     if (theme === "dark") {
       setTheme("light");
@@ -59,6 +79,9 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-[1440px] p-3 sm:p-6 bg-bg-clr w-full h-fit grid grid-cols-12 gap-6 relative">
+      {/* <audio ref={buttonAudioRef}>
+        <source src="/public_assets/sound/button_sound.wav" type="audio/wav" />
+      </audio> */}
       <ProfileCard />
       <ProjectsSlideshow />
       {/* <ProjectsSlideshow muted={muted} /> */}
@@ -81,26 +104,10 @@ export default function Home() {
           className={`round-button ${theme === "light" ? "selected" : ""}`}
           onClick={toggleTheme}
           disabled={theme === "light"}
-          // onMouseEnter={() => {
-          //   // if (theme != "light" && !muted) {
-          //   //   buttonAudio.play();
-          //   // }
-          // }}
-          // onMouseLeave={() => {
-          //   // if (theme != "light" && !muted) {
-          //   //   buttonAudio.play();
-          //   // }
-          // }}
-          // onFocus={() => {
-          //   // if (theme != "light" && !muted) {
-          //   //   buttonAudio.play();
-          //   // }
-          // }}
-          // onBlur={() => {
-          //   if (theme != "light" && !muted) {
-          //     buttonAudio.play();
-          //   }
-          // }}
+          // onMouseEnter={playButtonHoverAudio}
+          // onMouseLeave={theme !== "light" ? playButtonHoverAudio : undefined}
+          // onFocus={playButtonHoverAudio}
+          // onBlur={playButtonHoverAudio}
         >
           <IoSunny className="p-2" />
         </button>
@@ -109,21 +116,10 @@ export default function Home() {
           className={`round-button ${theme === "dark" ? "selected" : ""}`}
           onClick={toggleTheme}
           disabled={theme === "dark"}
-          // onMouseEnter={() => {
-          //   // if (theme != "dark" && !muted) {
-          //   //   buttonAudio.play();
-          //   // }
-          // }}
-          // onMouseLeave={() => {
-          //   // if (theme != "dark" && !muted) {
-          //   //   buttonAudio.play();
-          //   // }
-          // }}
-          // onFocus={() => {
-          //   // if (theme != "light" && !muted) {
-          //   //   buttonAudio.play();
-          //   // }
-          // }}
+          // onMouseEnter={playButtonHoverAudio}
+          // onMouseLeave={theme !== "dark" ? playButtonHoverAudio : undefined}
+          // onFocus={playButtonHoverAudio}
+          // onBlur={playButtonHoverAudio}
         >
           <IoMoon className="p-2" />
         </button>
@@ -133,22 +129,10 @@ export default function Home() {
         <button
           aria-label="Toggle Sound"
           className={`round-button ${theme === "light" ? "selected" : ""}`}
-          onClick={() => setMuted(!muted)}
-          onMouseEnter={() => {
-            // if (!muted) {
-            //   buttonAudio.play();
-            // }
-          }}
-          onMouseLeave={() => {
-            // if (!muted) {
-            //   buttonAudio.play();
-            // }
-          }}
-          onFocus={() => {
-            // if (!muted) {
-            //   buttonAudio.play();
-            // }
-          }}
+          onClick={toggleMuted}
+          onMouseEnter={playButtonHoverAudio}
+          onMouseLeave={playButtonHoverAudio}
+          onFocus={playButtonHoverAudio}
         >
           {muted ? (
             <FaVolumeXmark className="p-2" />
