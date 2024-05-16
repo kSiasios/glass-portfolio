@@ -78,7 +78,7 @@ const ProjectsSlideshow = () => {
               id={`project-${index}`}
               className="glass-component project-card transition-all duration-300 linear flex flex-col justify-between items-center gap-6 min-w-full w-full p-7 xs:p-14 border-none"
             >
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <div className="max-w-full flex flex-col sm:flex-row gap-6 justify-center">
                 <figure className="relative mx-auto aspect-square sm:mx-0 max-w-[50%] overflow-hidden flex-1 bg-bg-clr rounded-3xl border-2 border-txt-clr/15 h-full w-full">
                   <Image
                     width={1000}
@@ -101,7 +101,7 @@ const ProjectsSlideshow = () => {
                   <h3 className="mx-auto sm:mx-0 font-bold text-2xl xs:text-4xl">
                     {project.name}
                   </h3>
-                  <p className="text-lg xs:text-2xl leading-9">
+                  <p className="text-base text-wrap xs:text-2xl leading-9">
                     <span className="block sm:hidden">
                       {project.description}
                     </span>

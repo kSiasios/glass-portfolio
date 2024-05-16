@@ -75,7 +75,7 @@ const ProfileCard = () => {
       <Link
         className="underline inline-flex items-end"
         target="_blank"
-        download="Konstantinos Siasios - Resume"
+        // download="Konstantinos Siasios - Resume"
         href="./public_assets/resume/Konstantinos Siasios - Resume.pdf"
       >
         <FaLongArrowAltDown className="animate-bounce" />
