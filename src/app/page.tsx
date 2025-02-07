@@ -78,7 +78,7 @@ export default function Home() {
         document.body.setAttribute("data-prefered-theme", savedTheme);
       }
     }
-  }, [window]);
+  }, []);
 
   // function playButtonHoverAudio() {
   //   if (!muted && buttonAudioRef.current) {
@@ -148,10 +148,7 @@ export default function Home() {
               <IoIosLink />
             </Link>
             <Link
-              href={
-                window.location.host +
-                "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
-              }
+              href={qrInput}
               className="round-button aspect-square h-1/2 max-h-14"
             >
               <FaLongArrowAltDown />
