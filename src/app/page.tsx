@@ -15,6 +15,7 @@ import { QRCode } from "react-qrcode-logo";
 
 export default function Home() {
   const [theme, setTheme] = useState("");
+  const [qrInput, setQrInput] = useState("");
   // const [muted, setMuted] = useState(true);
   // const buttonAudioRef = React.useRef<HTMLAudioElement | null>(null);
   // const cardDuration = 5000; // 1 second
@@ -49,6 +50,11 @@ export default function Home() {
 
   useEffect(() => {
     console.log(
+      window.location.host +
+        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+    );
+
+    setQrInput(
       window.location.host +
         "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
     );
@@ -102,10 +108,7 @@ export default function Home() {
         <div className="group qrcode overflow-hidden rounded-lg shadow-xl relative">
           {/* <div className="peer"> */}
           <QRCode
-            value={
-              window.location.host +
-              "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
-            }
+            value={qrInput}
             eyeRadius={10}
             ecLevel="H"
             qrStyle="fluid"
@@ -118,10 +121,7 @@ export default function Home() {
           {/* </div> */}
           <div className="bg-[#00000088] w-full h-full absolute top-0 left-0 hidden group-hover:flex justify-center items-center gap-2">
             <Link
-              href={encodeURI(
-                window.location.host +
-                  "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
-              )}
+              href={encodeURI(qrInput)}
               target="_blank"
               className="round-button aspect-square h-1/2 max-h-14"
             >
