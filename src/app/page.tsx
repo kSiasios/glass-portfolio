@@ -29,6 +29,36 @@ export default function Home() {
 
   useLayoutEffect(() => {
     // setButtonAudio(new Audio("/public_Assets/sound/button_sound.wav"));
+    // let savedTheme = localStorage.getItem("prefered-theme");
+    // if (!savedTheme) {
+    //   if (
+    //     window.matchMedia &&
+    //     window.matchMedia("(prefers-color-scheme: dark)").matches
+    //   ) {
+    //     // dark mode
+    //     setTheme("dark");
+    //     localStorage.setItem("prefered-theme", "dark");
+    //   } else {
+    //     setTheme("light");
+    //     localStorage.setItem("prefered-theme", "light");
+    //   }
+    // } else {
+    //   setTheme(savedTheme);
+    //   document.body.setAttribute("data-prefered-theme", savedTheme);
+    // }
+  }, []);
+
+  useEffect(() => {
+    console.log(
+      window.location.host +
+        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+    );
+
+    setQrInput(
+      window.location.host +
+        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+    );
+
     let savedTheme = localStorage.getItem("prefered-theme");
     if (!savedTheme) {
       if (
@@ -46,19 +76,7 @@ export default function Home() {
       setTheme(savedTheme);
       document.body.setAttribute("data-prefered-theme", savedTheme);
     }
-  }, []);
-
-  useEffect(() => {
-    console.log(
-      window.location.host +
-        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
-    );
-
-    setQrInput(
-      window.location.host +
-        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
-    );
-  }, []);
+  }, [window]);
 
   // function playButtonHoverAudio() {
   //   if (!muted && buttonAudioRef.current) {
