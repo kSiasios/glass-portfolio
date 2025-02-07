@@ -7,8 +7,11 @@ import Skills from "@/app/components/Skills";
 import Socials from "@/app/components/Socials";
 // import { buttonAudio } from "@/assets/sound/button_sound.wav";
 import Link from "next/link";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { FaLongArrowAltDown } from "react-icons/fa";
+import { IoIosLink } from "react-icons/io";
 import { IoMoon, IoSunny } from "react-icons/io5";
+import { QRCode } from "react-qrcode-logo";
 
 export default function Home() {
   const [theme, setTheme] = useState("");
@@ -42,6 +45,13 @@ export default function Home() {
       setTheme(savedTheme);
       document.body.setAttribute("data-prefered-theme", savedTheme);
     }
+  }, []);
+
+  useEffect(() => {
+    console.log(
+      window.location.host +
+        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+    );
   }, []);
 
   // function playButtonHoverAudio() {
@@ -88,14 +98,55 @@ export default function Home() {
       <Socials />
       <Skills />
       <Decoration />
-      <footer className="absolute top-full inline-flex justify-center gap-2 items-center w-full py-9">
-        &copy; {currentYear}{" "}
-        <Link
-          href="https://www.linkedin.com/in/konstantinos-siasios/"
-          className="hover:underline focus:underline font-bold"
-        >
-          Konstantinos Siasios
-        </Link>
+      <footer className="flex-col items-center sm:flex-row absolute top-full inline-flex justify-between p-8 gap-4 sm:items-end w-full py-9">
+        <div className="group qrcode overflow-hidden rounded-lg shadow-xl relative">
+          {/* <div className="peer"> */}
+          <QRCode
+            value={
+              window.location.host +
+              "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+            }
+            eyeRadius={10}
+            ecLevel="H"
+            qrStyle="fluid"
+            logoImage="/public_assets\favicon_siasios_com.svg"
+            logoHeight={60}
+            logoWidth={60}
+            // bgColor="#00000000"
+            // fgColor="white"
+          />
+          {/* </div> */}
+          <div className="bg-[#00000088] w-full h-full absolute top-0 left-0 hidden group-hover:flex justify-center items-center gap-2">
+            <Link
+              href={encodeURI(
+                window.location.host +
+                  "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+              )}
+              target="_blank"
+              className="round-button aspect-square h-1/2 max-h-14"
+            >
+              <IoIosLink />
+            </Link>
+            <Link
+              href={
+                window.location.host +
+                "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+              }
+              className="round-button aspect-square h-1/2 max-h-14"
+            >
+              <FaLongArrowAltDown />
+            </Link>
+          </div>
+        </div>
+        <div>
+          &copy; {currentYear}{" "}
+          <Link
+            href="https://www.linkedin.com/in/konstantinos-siasios/"
+            className="hover:underline focus:underline font-bold"
+          >
+            Konstantinos Siasios
+          </Link>
+        </div>
       </footer>
       {/* Theme Toggler */}
       <section className="z-50 left-1/2 top-0 mt-6 -translate-x-1/2 glass-component absolute inline-flex gap-4 p-2 text-4xl overflow-y-visible">
