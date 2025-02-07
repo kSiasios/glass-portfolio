@@ -49,32 +49,34 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    console.log(
-      window.location.host +
-        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
-    );
+    if (typeof window !== "undefined") {
+      console.log(
+        window.location.host +
+          "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+      );
 
-    setQrInput(
-      window.location.host +
-        "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
-    );
+      setQrInput(
+        window.location.host +
+          "/public_assets/resume/fullstack/Konstantinos Siasios - Resume.pdf"
+      );
 
-    let savedTheme = localStorage.getItem("prefered-theme");
-    if (!savedTheme) {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        // dark mode
-        setTheme("dark");
-        localStorage.setItem("prefered-theme", "dark");
+      let savedTheme = localStorage.getItem("prefered-theme");
+      if (!savedTheme) {
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          // dark mode
+          setTheme("dark");
+          localStorage.setItem("prefered-theme", "dark");
+        } else {
+          setTheme("light");
+          localStorage.setItem("prefered-theme", "light");
+        }
       } else {
-        setTheme("light");
-        localStorage.setItem("prefered-theme", "light");
+        setTheme(savedTheme);
+        document.body.setAttribute("data-prefered-theme", savedTheme);
       }
-    } else {
-      setTheme(savedTheme);
-      document.body.setAttribute("data-prefered-theme", savedTheme);
     }
   }, [window]);
 
